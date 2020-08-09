@@ -1,6 +1,16 @@
-# Alfresco AIO Project - SDK 4.0
+# Alfresco Sinadura 6.2 Project
 
-This is an All-In-One (AIO) project for Alfresco SDK 4.0.
+This project is originated from https://github.com/zylklab/alfresco-sinadura . So please go there for specific Sinadura matters.
+
+I would like to thank [PMGA.tech](http://www.pmga.tech/) as my sponsor to make the work possible. 
+
+It is planned to contribute back to the origin. But until then I would like to thank the creators of the Alfresco Sinadura addon for this sophisticated product.
+
+## SDK
+
+This project is based on Alfresco's SDK 4.1.0 to make it ACS 6.X compatible. For more details on how the SDK works visit: https://github.com/Alfresco/alfresco-sdk
+
+## Useful Commands
 
 Run with `./run.sh build_start` or `./run.bat build_start` and verify that it
 
@@ -26,21 +36,5 @@ All the services of the project are now run as docker containers. The run script
  `integration-tests` module and stop the environment.
  * `test`. Execute the integration tests (the environment must be already started).
 
-# Few things to notice
-
- * No parent pom
- * No WAR projects, the jars are included in the custom docker images
- * No runner project - the Alfresco environment is now managed through [Docker](https://www.docker.com/)
- * Standard JAR packaging and layout
- * Works seamlessly with Eclipse and IntelliJ IDEA
- * JRebel for hot reloading, JRebel maven plugin for generating rebel.xml [JRebel integration documentation]
- * AMP as an assembly
- * Persistent test data through restart thanks to the use of Docker volumes for ACS, ASS and database data
- * Integration tests module to execute tests against the final environment (dockerised)
- * Resources loaded from META-INF
- * Web Fragment (this includes a sample servlet configured via web fragment)
-
-# TODO
-
-  * Abstract assembly into a dependency so we don't have to ship the assembly in the archetype
-  * Functional/remote unit tests
+## Notice
+* The Share image applies the fix for allowing the signature in the preview. https://github.com/zylklab/alfresco-sinadura/issues/9
