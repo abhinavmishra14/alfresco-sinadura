@@ -114,7 +114,7 @@
 											sinadura.setErrorCallback(function(code, message, status) {
 												console.log("Error: " + code + " - " + message + " - " + status);
 												alert("Error: " + message);
-												sinadura.removeTransaction();
+												sinadura.endTransaction();
 											});
 											
 											for (var i = 0; i< docFiles.length; i++) {
@@ -122,7 +122,7 @@
 												var docFile = docFiles[i];
 												console.log("docFile json: " + JSON.stringify(docFile, null, 3));
 												var url = window.location.protocol + "//" + window.location.host + "/alfresco/service/api/node/content/" + docFile.nodeRef.replace(":/", "") + "/" + encodeURIComponent(docFile.displayName) +"?a=true&alf_ticket="+json.ticket;
-												sinadura.addDocument(docFile.nodeRef, "url", docFile.displayName, url);
+												sinadura.addInput(docFile.nodeRef, "url", docFile.displayName, url);
 											}
 											
 											sinadura.sign(function(inputs) {
@@ -157,7 +157,7 @@
 												jQuery.when.apply(this, dfdInputSignedArray).then(function() {
 													// ok en todas las firmas
 													console.log("sign complete success");
-													sinadura.removeTransaction();
+													sinadura.endTransaction();
 													window.location.reload();
 												}, 
 												function() {
